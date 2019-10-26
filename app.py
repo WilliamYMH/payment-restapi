@@ -1,8 +1,9 @@
+import os
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 # settings db
-DB_URI = "mysql+mysqlconnector://william:1234@localhost/payment"
+DB_URI = os.environ.get('DATABASE_URL')
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = DB_URI
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
