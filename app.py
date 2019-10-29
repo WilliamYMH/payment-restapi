@@ -42,10 +42,10 @@ def payment():
             'tienda': payment.tienda
         }
         return jsonify(payment_dict)
-    except:
+    except Exception as e:
         payment_dict = {
-            'status': 'no response',
-            'message': 'Los datos son invalidos'
+            'status': e,
+            'message': 'Ha ocurrido un error'
         }
         return jsonify(payment_dict)
 
